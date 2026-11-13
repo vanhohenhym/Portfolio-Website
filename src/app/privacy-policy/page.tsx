@@ -10,14 +10,14 @@ export const metadata: Metadata = {
   description:
     "Privacy Policy for Md. Shahriar Rahman Nadim's portfolio and digital agency website covering contact inquiries, analytics, and third-party links.",
   alternates: {
-    canonical: "/privacy-policy",
+    canonical: `${siteConfig.siteUrl}/privacy-policy`,
   },
   openGraph: {
     title: `Privacy Policy — ${siteConfig.brand.fullName}`,
     description:
       "How inquiry data and optional analytics are handled on this portfolio website.",
     url: `${siteConfig.siteUrl}/privacy-policy`,
-    images: ["/opengraph-image"],
+    images: [`${siteConfig.siteUrl}/opengraph-image.png`],
   },
 };
 

@@ -10,10 +10,24 @@ export interface SocialQuickAction {
   href: string;
 }
 
+const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/+$/, "");
+const siteOrigin = (
+  process.env.NEXT_PUBLIC_SITE_URL || "https://shahriarnadim.com"
+).replace(/\/+$/, "");
+
+const formspreeEndpoint =
+  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT?.trim() ||
+  "https://formspree.io/f/xbgodown";
+
+export function assetPath(path: string): string {
+  if (!path) return path;
+  return `${basePath}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 export const siteConfig = {
-  siteUrl: (
-    process.env.NEXT_PUBLIC_SITE_URL || "https://shahriarnadim.com"
-  ).replace(/\/$/, ""),
+  siteUrl: `${siteOrigin}${basePath}`,
+  siteOrigin,
+  basePath,
   brand: {
     monogram: "S",
     shortName: "Shahriar",
@@ -26,6 +40,7 @@ export const siteConfig = {
   },
   contact: {
     email: "shahriarrahmannadim@gmail.com",
+    formspreeEndpoint,
     phoneDisplay: "01646493182",
     phoneHref: "tel:+8801646493182",
     phoneInternational: "+8801646493182",

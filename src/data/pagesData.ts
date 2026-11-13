@@ -6,7 +6,7 @@ import {
   PortfolioGridBlockData,
   ServicesMatrixBlockData,
 } from "@/types/cms";
-import { siteConfig } from "./siteConfig";
+import { assetPath, siteConfig } from "./siteConfig";
 
 const heroBlock: HeroBentoBlockData = {
   id: "hero",
@@ -37,7 +37,7 @@ const heroBlock: HeroBentoBlockData = {
   socialProofText: "Trusted Long-Term Partner for Returning Clients",
   profileCard: {
     availabilityText: "Available for retainers & new builds",
-    portraitUrl: "/images/shahriar-portrait.webp",
+    portraitUrl: assetPath("/images/shahriar-portrait.webp"),
     initials: "SN",
     email: siteConfig.contact.email,
     fullName: siteConfig.brand.fullName,
@@ -56,7 +56,7 @@ const aboutBlock: AboutSplitBlockData = {
   watermarkLabel: "Shahriar",
   headlinePrimary: "I build digital ecosystems",
   headlineMuted: "that grow and stand out",
-  portraitUrl: "/images/shahriar-portrait.webp",
+  portraitUrl: assetPath("/images/shahriar-portrait.webp"),
   portraitBadge:
     "Jahangirnagar University (Finance & Banking) • CMA Candidate",
   leadParagraph:
@@ -84,7 +84,7 @@ const aboutBlock: AboutSplitBlockData = {
     title: "Trusted by Returning Clients",
     subtitle:
       "From initial Figma prototype and full web build to ongoing monthly SEO and social media management.",
-    visualUrl: "/images/shahriar-portrait.webp",
+    visualUrl: assetPath("/images/shahriar-portrait.webp"),
   },
 };
 
@@ -162,7 +162,7 @@ const portfolioBlock: PortfolioGridBlockData = {
       tags: ["E-Commerce UI", "Catalog & Cart", "Local SEO"],
       variant: "cream",
       href: "https://citycomputernabinagar.com/",
-      imageUrl: "/images/work/citycomputernabinagar.webp",
+      imageUrl: assetPath("/images/work/citycomputernabinagar.webp"),
       external: true,
     },
     {
@@ -175,7 +175,7 @@ const portfolioBlock: PortfolioGridBlockData = {
       tags: ["Conversion UX", "WordPress / Elementor", "Lead Capture"],
       variant: "orange",
       href: "https://hifipestcontrol.com.au/",
-      imageUrl: "/images/work/hifipestcontrol.webp",
+      imageUrl: assetPath("/images/work/hifipestcontrol.webp"),
       external: true,
     },
     {
@@ -188,7 +188,7 @@ const portfolioBlock: PortfolioGridBlockData = {
       tags: ["Brand Identity", "Storefront Build", "Mobile Commerce"],
       variant: "dark",
       href: "https://alphagearxbd.com/",
-      imageUrl: "/images/work/alphagearxbd.webp",
+      imageUrl: assetPath("/images/work/alphagearxbd.webp"),
       external: true,
     },
   ],

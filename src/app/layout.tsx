@@ -15,7 +15,7 @@ const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.siteUrl),
+  metadataBase: new URL(siteConfig.siteOrigin),
   title: `${siteConfig.brand.fullName} — Web Architect & Digital Growth Partner`,
   description:
     "Portfolio & digital agency of Md. Shahriar Rahman Nadim. High-converting Figma UI/UX, WordPress & Elementor Pro builds, Next.js apps, SEO, and client retainers.",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       "High-converting Figma UI/UX, WordPress & Elementor Pro builds, Next.js apps, Technical SEO, and monthly client retainers.",
     images: [
       {
-        url: "/opengraph-image",
+        url: `${siteConfig.siteUrl}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: `${siteConfig.brand.fullName} — ${siteConfig.brand.role}`,
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.brand.fullName} — Web Architect & Digital Growth Partner`,
     description:
       "High-converting Figma UI/UX, WordPress & Elementor Pro builds, Next.js apps, Technical SEO, and monthly client retainers.",
-    images: ["/opengraph-image"],
+    images: [`${siteConfig.siteUrl}/opengraph-image.png`],
   },
   verification: googleVerification ? { google: googleVerification } : undefined,
 };

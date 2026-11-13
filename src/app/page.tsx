@@ -12,13 +12,13 @@ export async function generateMetadata(): Promise<Metadata> {
     title: page.title,
     description: page.description,
     alternates: {
-      canonical: "/",
+      canonical: `${siteConfig.siteUrl}/`,
     },
     openGraph: {
       title: page.title,
       description: page.description,
       url: siteConfig.siteUrl,
-      images: ["/opengraph-image"],
+      images: [`${siteConfig.siteUrl}/opengraph-image.png`],
     },
   };
 }

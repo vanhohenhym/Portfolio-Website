@@ -41,13 +41,13 @@ export async function generateMetadata({
     title: page.title,
     description: page.description,
     alternates: {
-      canonical: canonicalPath,
+      canonical: `${siteConfig.siteUrl}${canonicalPath}`,
     },
     openGraph: {
       title: page.title,
       description: page.description,
       url: `${siteConfig.siteUrl}${canonicalPath}`,
-      images: ["/opengraph-image"],
+      images: [`${siteConfig.siteUrl}/opengraph-image.png`],
     },
   };
 }

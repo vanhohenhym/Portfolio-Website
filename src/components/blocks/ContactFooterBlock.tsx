@@ -43,39 +43,57 @@ export function ContactFooterBlock({
     setStatus("submitting");
     setFeedback("");
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(siteConfig.contact.formspreeEndpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, service, message }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        signal: controller.signal,
+        body: JSON.stringify({
+          name,
+          email,
+          service,
+          message,
+          _replyto: email,
+          _subject: `New project inquiry — ${service}`,
+        }),
       });
 
-      const result = (await response.json()) as {
+      const result = (await response.json().catch(() => ({}))) as {
         ok?: boolean;
-        message?: string;
-        error?: string;
+        errors?: Array<{ message?: string }>;
       };
 
-      if (!response.ok || !result.ok) {
+      if (!response.ok || result.ok === false) {
         setStatus("error");
         setFeedback(
-          result.error || "Please check your details and try again."
+          result.errors?.[0]?.message ||
+            "Your message could not be delivered. Please email or message me on WhatsApp directly."
         );
         return;
       }
 
       setStatus("success");
-      setFeedback(
-        result.message || "Inquiry received! I will reply within 24 hours."
-      );
+      setFeedback("Inquiry received! I will reply within 24 hours.");
       setName("");
       setEmail("");
       setMessage("");
-    } catch {
+    } catch (error) {
+      const timedOut =
+        error instanceof DOMException && error.name === "AbortError";
       setStatus("error");
       setFeedback(
-        "Network error. Please email or message via WhatsApp directly."
+        timedOut
+          ? "The request timed out. Please email or message via WhatsApp directly."
+          : "Network error. Please email or message via WhatsApp directly."
       );
+    } finally {
+      clearTimeout(timeoutId);
     }
   }
 
