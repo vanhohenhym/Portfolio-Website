@@ -101,7 +101,12 @@ export async function POST(request: NextRequest) {
   try {
     const webhookResponse = await fetch(webhookUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        // Ask JSON-aware endpoints (e.g. Formspree) for a real status code
+        // instead of an HTML redirect page.
+        Accept: "application/json",
+      },
       body: JSON.stringify(submission),
     });
 
