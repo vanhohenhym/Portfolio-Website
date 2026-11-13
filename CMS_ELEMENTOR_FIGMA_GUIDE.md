@@ -12,8 +12,8 @@ Import these variables directly into **Figma Local Variables** (`Variables → C
 
 | Token Name | CSS Variable | Value | Usage |
 | :--- | :--- | :--- | :--- |
-| `bg/canvas` | `--token-bg-canvas` | `#120905` | Deep Espresso page canvas |
-| `bg/surface-dark` | `--token-bg-surface-dark` | `#1A0D07` | Floating nav pills & dark footer bars |
+| `bg/canvas` | `--token-bg-canvas` | `#080301` | Deep Espresso page canvas |
+| `bg/surface-dark` | `--token-bg-surface-dark` | `#120906` | Floating nav pills & dark footer bars |
 | `bg/hero-gradient` | `--token-bg-hero-gradient` | `linear-gradient(135deg, #D1450F 0%, #A02C07 55%, #2A1107 100%)` | Hero & Contact CTA surfaces |
 | `card/cream` | `--token-card-cream` | `#F9F6F2` | High-contrast cream Bento cards |
 | `card/orange` | `--token-card-orange` | `#C0390B` | AA-compliant burnt orange surfaces with white text |
@@ -72,7 +72,8 @@ Paste into **Site Settings → Custom CSS** (or **Theme Customizer → Additiona
 
 ```css
 :root {
-  --token-bg-canvas: #120905;
+  --token-bg-canvas: #080301;
+  --token-bg-surface-dark: #120906;
   --token-bg-hero-gradient: linear-gradient(135deg, #D1450F 0%, #A02C07 55%, #2A1107 100%);
   --token-card-cream: #F9F6F2;
   --token-card-orange: #C0390B;
@@ -127,7 +128,7 @@ body {
    - Left Bottom Stats: Nested **2-Column CSS Grid Container** (`gap: 16px`), applying `bento-card-cream` to Card 1 and `bento-card-glass` to Card 2.
    - Right Profile Card: Vertical **Flexbox Container** with class `bento-card-cream`, `border-radius: 22px`, `max-width: 330px`.
 2. **`AboutSplitBlock`:**
-   - Outer Container: **Boxed (`1320px`)**, Background `#120905`.
+   - Outer Container: **Boxed (`1320px`)**, Background `#080301`.
    - Main Split: **2-Column Container** (`42%` Portrait / `58%` Story + Sub-Cards).
    - Right Bottom: Nested **2-Column CSS Grid Container** (`gap: 16px`).
 3. **`ServicesMatrixBlock`:**

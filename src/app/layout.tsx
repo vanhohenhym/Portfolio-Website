@@ -16,6 +16,9 @@ const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteOrigin),
+  icons: {
+    icon: `${siteConfig.basePath}/icon.svg`,
+  },
   title: `${siteConfig.brand.fullName} — Web Architect & Digital Growth Partner`,
   description:
     "Portfolio & digital agency of Md. Shahriar Rahman Nadim. High-converting Figma UI/UX, WordPress & Elementor Pro builds, Next.js apps, SEO, and client retainers.",
