@@ -1,0 +1,35 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# next.js build output
+.next/
+out/
+build/
+
+# production
+dist/
+
+# generated types / caches
+next-env.d.ts.bak
+*.tsbuildinfo
+.turbo/
+
+# environment files
+.env
+.env*.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# misc
+.DS_Store
+Thumbs.db
+.vercel
+
+# release archive (regenerated separately)
+/shahriar-nadim-portfolio.zip

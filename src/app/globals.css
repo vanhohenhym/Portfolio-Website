@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ==========================================================================
+     FIGMA VARIABLES & ELEMENTOR GLOBAL STYLE TOKENS (1:1 Sync)
+     ========================================================================== */
+  --token-bg-canvas: #080301;
+  --token-bg-surface-dark: #120906;
+  --token-bg-hero-gradient: linear-gradient(
+    135deg,
+    #d1450f 0%,
+    #a02c07 55%,
+    #2a1107 100%
+  );
+  --token-card-cream: #f9f6f2;
+  /* AA-compliant burnt-orange surface whenever white text sits on top */
+  --token-card-orange: #c0390b;
+  --token-card-glass: rgba(255, 255, 255, 0.12);
+  --token-card-glass-border: rgba(255, 255, 255, 0.18);
+
+  --token-text-primary: #ffffff;
+  --token-text-muted: #8c7a70;
+  --token-text-dark: #18120f;
+
+  --token-radius-hero: 32px;
+  --token-radius-card: 20px;
+  --token-radius-pill: 9999px;
+
+  --token-space-section: 88px;
+  --token-space-bento-gap: 16px;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--token-bg-canvas);
+  color: var(--token-text-primary);
+}
+
+body {
+  background-color: transparent;
+  color: var(--token-text-primary);
+  font-family: var(--font-plus-jakarta), Inter, system-ui, -apple-system,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.heading-tight {
+  letter-spacing: -0.03em;
+}
+
+.glass-surface {
+  background: var(--token-card-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--token-card-glass-border);
+}
+
+.hero-gradient-surface {
+  background: var(--token-bg-hero-gradient);
+}
+
+/* Radial + edge-feather mask so hero background portrait blends with zero vertical seams */
+.hero-portrait-mask {
+  -webkit-mask-image: radial-gradient(
+    ellipse 64% 78% at 50% 48%,
+    rgba(0, 0, 0, 1) 28%,
+    rgba(0, 0, 0, 0.55) 54%,
+    transparent 80%
+  );
+  mask-image: radial-gradient(
+    ellipse 64% 78% at 50% 48%,
+    rgba(0, 0, 0, 1) 28%,
+    rgba(0, 0, 0, 0.55) 54%,
+    transparent 80%
+  );
+}
+
+/* Warm studio rim-light treatment for portrait blending */
+.portrait-studio-warm {
+  filter: contrast(1.08) saturate(1.1);
+}
+
+/* Warm duotone moody portrait filter for About section */
+.portrait-duotone-amber {
+  filter: contrast(1.16) saturate(1.15) sepia(0.24) brightness(0.92);
+}
+
+/* Visible keyboard focus for links and buttons (form fields use a ring) */
+:where(a, button, [role="button"]):focus-visible {
+  outline: 2px solid #ff9b73;
+  outline-offset: 2px;
+}
+
+/* Subtle editorial film-grain texture */
+.film-grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
