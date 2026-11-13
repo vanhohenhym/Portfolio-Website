@@ -238,11 +238,19 @@ export function AmbientVideoBackground() {
     };
 
     syncMotion();
-    motionQuery.addEventListener("change", syncMotion);
+    if (typeof motionQuery.addEventListener === "function") {
+      motionQuery.addEventListener("change", syncMotion);
+    } else if (typeof (motionQuery as unknown as { addListener?: (cb: () => void) => void }).addListener === "function") {
+      (motionQuery as unknown as { addListener: (cb: () => void) => void }).addListener(syncMotion);
+    }
 
     return () => {
       stop();
-      motionQuery.removeEventListener("change", syncMotion);
+      if (typeof motionQuery.removeEventListener === "function") {
+        motionQuery.removeEventListener("change", syncMotion);
+      } else if (typeof (motionQuery as unknown as { removeListener?: (cb: () => void) => void }).removeListener === "function") {
+        (motionQuery as unknown as { removeListener: (cb: () => void) => void }).removeListener(syncMotion);
+      }
       window.removeEventListener("resize", resize);
     };
   }, []);

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 export function BrandMark({
@@ -129,6 +130,25 @@ export function ActionPillButton({
 
   const baseClasses = `group inline-flex items-center justify-between gap-3 rounded-full p-1.5 max-w-full min-w-0 transition-all duration-300 ease-out ${variantClasses[variant]} ${className}`;
 
+  const pathname = usePathname();
+
+  const handleInPageClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (
+      pathname === "/" &&
+      (href === "/contact" ||
+        href === "/work" ||
+        href === "/about" ||
+        href === "/services")
+    ) {
+      const targetId = href.replace("/", "");
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
+
   if (
     external ||
     href.startsWith("http") ||
@@ -148,7 +168,7 @@ export function ActionPillButton({
   }
 
   return (
-    <Link href={href} className={baseClasses}>
+    <Link href={href} onClick={handleInPageClick} className={baseClasses}>
       {content}
     </Link>
   );

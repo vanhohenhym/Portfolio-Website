@@ -22,6 +22,7 @@ export function HeroBentoBlock({ data }: { data: HeroBentoBlockData }) {
       data-block-type="HeroBentoBlock"
       className="relative z-10 max-w-[1320px] mx-auto px-3 sm:px-6 pt-3 sm:pt-6"
     >
+      <div id="home" className="sr-only" aria-hidden="true" />
       <div className="relative rounded-[24px] sm:rounded-[32px] overflow-hidden hero-gradient-surface border border-white/10 px-4 sm:px-8 lg:px-10 pt-4 sm:pt-5 pb-14 sm:pb-20 shadow-[0_30px_90px_rgba(0,0,0,0.65)]">
         {/* Atmospheric studio glow + smoothly masked blended portrait backdrop */}
         <div

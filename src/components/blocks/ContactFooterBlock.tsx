@@ -124,6 +124,7 @@ export function ContactFooterBlock({
                 <input
                   id="contact-name"
                   type="text"
+                  autoComplete="name"
                   required
                   minLength={2}
                   value={name}
@@ -139,6 +140,7 @@ export function ContactFooterBlock({
                 <input
                   id="contact-email"
                   type="email"
+                  autoComplete="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -154,6 +156,7 @@ export function ContactFooterBlock({
               </label>
               <select
                 id="contact-service"
+                aria-label="Select Service Needed"
                 value={service}
                 onChange={(e) => setService(e.target.value)}
                 style={{ colorScheme: "dark" }}
